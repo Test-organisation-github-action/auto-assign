@@ -47,7 +47,6 @@ export async function run() {
       }
     )
 
-    //Skip DRAFT PRs
     if(pull.data.draft && !includeDraft){
       console.log('Skipped: DRAFT Pull Request, not assigning PR.')
       return
