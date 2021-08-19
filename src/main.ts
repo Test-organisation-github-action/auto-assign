@@ -52,7 +52,7 @@ export async function run() {
       return
     }
 
-    const teams = core.getInput('teams').split(',').map(a => Number(a.trim()))
+    const teams = core.getInput('teams').split(',').map(a => a.trim())
 
     if(teams.length == 0){
       core.setFailed("Please specify 'teams'")
