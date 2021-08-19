@@ -60,6 +60,7 @@ export async function run() {
     }
 
     console.log("Adding teams: " + teams)
+    console.log('Organisation', organisation);
     for(let teamSlug of teams) {
       const teamMembers: TeamMember[] = (await client.request('GET /orgs/{org}/teams/{team_slug}/members', {
         org: organisation,
