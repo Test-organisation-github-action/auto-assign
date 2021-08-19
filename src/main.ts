@@ -59,8 +59,8 @@ export async function run() {
       return
     }
 
-    console.log("Adding teams: " + teams)
-    console.log('Organisation', organisation);
+    console.log('Adding teams');
+
     for(let teamSlug of teams) {
       const teamMembers: TeamMember[] = (await client.request('GET /orgs/{org}/teams/{team_slug}/members', {
         org: organisation,
@@ -68,6 +68,8 @@ export async function run() {
       })).data
 
       const reviewers = teamMembers.map(member => member.login);
+
+      console.log('Adding reviewers: ', reviewers, 'from team: ', teamSlug);
 
       const teamResponse = await client.pulls.createReviewRequest(
         {
